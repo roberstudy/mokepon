@@ -21,7 +21,7 @@ class Mokepon {
 }
 
 const anchoMaximoDelMapa = 350;
-const IP_LAPTOP = "192.168.10.116";
+const IP_LAPTOP = "192.168.1.8";
 const HIPODOGE_ATAQUES = [
   { nombre: "💧", id: "boton-agua" },
   { nombre: "💧", id: "boton-agua" },
@@ -153,7 +153,6 @@ function unirseAlJuego() {
   fetch(`http://${IP_LAPTOP}:8080/unirse`).then((res) => {
     if (res.ok) {
       res.text().then((respuesta) => {
-        console.log("ROBER resp: ", respuesta);
         jugadorId = respuesta;
       });
     }
@@ -230,7 +229,6 @@ function enviarPosicion(x, y) {
     if (res.ok) {
       res.json().then(({ enemigos }) => {
         mokeponesEnemigos = enemigos.map((enemigo) => {
-          console.log("Rober enemigos: ", { enemigo });
           let mokeponEnemigo = null;
           const mokeponNombre = enemigo.mokepon.nombre || "";
 
